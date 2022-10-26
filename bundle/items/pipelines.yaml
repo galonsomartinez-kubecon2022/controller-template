@@ -8,7 +8,7 @@ items:
   - name: "Job Managers"
     members:
       internal_groups:
-      - controller-managers
+      - Managers
     roles:
     - name: "job-manager"
       grantedAt: "current"
@@ -16,7 +16,7 @@ items:
   - name: Job Configure
     members:
       internal_groups:
-      - controller-managers
+      - Managers
     roles:
     - name: job-configure
       grantedAt: child
@@ -29,3 +29,19 @@ items:
       - workshop-catalog/maven
       - workshop-catalog/python
       filter: true
+  items:
+  - kind: cloudbeesTemplatedJob
+    name: insurance-frontend
+    catalog: workshop-catalog
+    model: container-build
+    attributes:
+    - key: name
+      value: insurance-frontend
+    - key: repoOwner
+      value: ${GITHUB_ORGANIZATION}
+    - key: repository
+      value: insurance-frontend
+    - key: githubCredentialId
+      value: cloudbees-ci-previews-demo-github-app
+    - key: baseImageName
+      value: nginx
